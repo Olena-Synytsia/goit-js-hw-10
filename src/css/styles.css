@@ -47,7 +47,7 @@ section a {
   font-size: 20px;
 }
 
-#datetime-picker {
+.flatpickr-input {
   width: 238px;
   height: 22px;
   gap: 8px;
@@ -57,6 +57,10 @@ section a {
   padding: 8px 16px;
   text-align: left;
   margin-top: 36px;
+  font-weight: 600;
+  line-height: 19.5px;
+  text-align: center;
+  color: #333333;
 }
 
 ul {
