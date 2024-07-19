@@ -56,11 +56,26 @@ section a {
   background-color: #f5f5f5;
   padding: 8px 16px;
   text-align: left;
-  margin-top: 36px;
-  font-weight: 600;
-  line-height: 19.5px;
-  text-align: center;
-  color: #333333;
+  margin-top: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: left;
+  color: #2e2f42;
+}
+
+.flatpickr-input:hover {
+  border: 1px solid #000000 !important;
+  transition: color 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.flatpickr-input:active {
+  border: 1px solid #4e75ff !important;
+  transition: color 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.flatpickr-input:disabled {
+  border: 1px solid #808080 !important;
+  transition: color 300ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 ul {

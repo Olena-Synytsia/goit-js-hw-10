@@ -11,7 +11,7 @@ const hoursElement = document.querySelector('span.value[data-hours]');
 const daysElement = document.querySelector('span.value[data-days]');
 const datetimePicker = document.getElementById('datetime-picker');
 
-let userSelectedDate = 0;
+let userSelectedDate = null;
 let timerInterval = 0;
 
 const options = {
