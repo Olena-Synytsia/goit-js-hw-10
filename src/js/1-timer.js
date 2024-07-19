@@ -4,18 +4,15 @@ import 'flatpickr/dist/flatpickr.min.css';
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 
-const datetimePicker = document.getElementById('#datetime-picker');
-const btnStart = document.querySelector('button');
+const btnStart = document.querySelector('button[data-start]');
 const secondsElement = document.querySelector('span.value[data-seconds]');
 const minutesElement = document.querySelector('span.value[data-minutes]');
 const hoursElement = document.querySelector('span.value[data-hours]');
 const daysElement = document.querySelector('span.value[data-days]');
+const datetimePicker = document.getElementById('datetime-picker');
 
 let userSelectedDate = 0;
-
-console.log(convertMs(2000)); // {days: 0, hours: 0, minutes: 0, seconds: 2}
-console.log(convertMs(140000)); // {days: 0, hours: 0, minutes: 2, seconds: 20}
-console.log(convertMs(24140000)); // {days: 0, hours: 6 minutes: 42, seconds: 20}
+let timerInterval = 0;
 
 const options = {
   enableTime: true,
@@ -40,25 +37,31 @@ const options = {
   },
 };
 
-flatpickr('#datetime-picker', options);
+flatpickr(datetimePicker, options);
+
 btnStart.addEventListener('click', timerStart);
 
 function timerStart() {
   btnStart.disabled = true;
   datetimePicker.disabled = true;
-  startCountdown();
-}
 
-function startCountdown() {
-  const timerInterval = setInterval(() => {
-    const timeLeft = getTimeDifference(userSelectedDate);
+  if (timerInterval) {
+    clearInterval(timerInterval);
+  }
+  timerInterval = setInterval(() => {
+    const now = new Date();
+    const timeLeft = userSelectedDate - now;
 
-    updateTimerDisplay(timeLeft);
-
-    if (timeLeft.total <= 0) {
+    if (timeLeft <= 0) {
       clearInterval(timerInterval);
-      updateTimerDisplay({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+      datetimePicker.disabled = false;
+      btnStart.disabled = false;
+      resetTimer();
+      return;
     }
+
+    const { days, hours, minutes, seconds } = convertMs(timeLeft);
+    updateTimerDisplay({ days, hours, minutes, seconds });
   }, 1000);
 }
 
@@ -74,4 +77,29 @@ function convertMs(ms) {
   const seconds = Math.floor((((ms % day) % hour) % minute) / second);
 
   return { days, hours, minutes, seconds };
+}
+
+function addLeadingZero(value) {
+  return String(value).padStart(2, '0');
+}
+
+function updateTimerDisplay(time) {
+  const days = addLeadingZero(time.days);
+  const hours = addLeadingZero(time.hours);
+  const minutes = addLeadingZero(time.minutes);
+  const seconds = addLeadingZero(time.seconds);
+
+  daysElement.textContent = days;
+  hoursElement.textContent = hours;
+  minutesElement.textContent = minutes;
+  secondsElement.textContent = seconds;
+}
+
+function resetTimer() {
+  btnStart.disabled = false;
+  datetimePicker.disabled = false;
+  daysElement.textContent = '00';
+  hoursElement.textContent = '00';
+  minutesElement.textContent = '00';
+  secondsElement.textContent = '00';
 }
