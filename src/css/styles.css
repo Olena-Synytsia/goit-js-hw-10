@@ -150,9 +150,9 @@ input text:focus {
   height: 100%;
 }
 
-form label {
+/* form label {
   width: 360px;
-}
+} */
 
 input[type='number'] {
   width: 354px;
@@ -166,15 +166,26 @@ input[type='number'] {
 fieldset {
   display: flex;
   flex-direction: row;
+  align-items: end;
+  justify-content: center;
   gap: 24px;
   width: 262px;
   height: 64px;
   border: 1px solid #808080;
+  border-radius: 4px;
   color: #2e2f42;
-  padding: 24px 48px 8px 48px;
-  margin: 0;
-  /* padding: 0; */
   margin-bottom: 24px;
+  padding: 0 48px;
+}
+
+legend {
+  /* position: absolute;
+  left: 44px;
+  top: 200px; */
+  text-align: left;
+  width: fit-content;
+  padding: 0 8px;
+  margin-bottom: 8px;
 }
 
 fieldset label {
@@ -190,9 +201,7 @@ input[type='radio'] {
   display: flex;
   width: 20px;
   height: 20px;
-  margin: 6px;
-  text-align: center;
-  justify-content: center;
+  margin: 0;
 }
 
 form button {
