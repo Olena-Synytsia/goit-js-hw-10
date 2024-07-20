@@ -89,8 +89,6 @@ ul {
   gap: 10px;
   border-radius: 8px;
   opacity: 0px;
-  background-color: #cfcfcf;
-  font-weight: 500;
   background-color: #4e75ff;
   color: #ffffff;
   font-weight: 500;
@@ -103,6 +101,7 @@ ul {
   cursor: pointer;
   background-color: #6c8cff;
   transition: color 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  outline: none;
 }
 
 input text:hover,
@@ -150,14 +149,10 @@ input text:focus {
   height: 100%;
 }
 
-/* form label {
-  width: 360px;
-} */
-
 input[type='number'] {
-  width: 354px;
-  height: 34px;
-  padding: 2px;
+  width: 342px;
+  height: 30px;
+  padding: 4px 8px;
   border-radius: 4px;
   border: 1px solid #808080;
   margin-bottom: 16px;
@@ -179,9 +174,6 @@ fieldset {
 }
 
 legend {
-  /* position: absolute;
-  left: 44px;
-  top: 200px; */
   text-align: left;
   width: fit-content;
   padding: 0 8px;
@@ -204,6 +196,11 @@ input[type='radio'] {
   margin: 0;
 }
 
+input[type='radio']:hover,
+input[type='radio']:focus {
+  outline: none;
+}
+
 form button {
   width: 360px;
   height: 40px;
@@ -213,6 +210,7 @@ form button {
   background-color: #4e75ff;
   color: #ffffff;
   border: none;
+  font-weight: 500;
 }
 
 form button:hover,
@@ -220,4 +218,5 @@ form button:focus {
   cursor: pointer;
   background-color: #6c8cff;
   transition: color 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  outline: none;
 }
