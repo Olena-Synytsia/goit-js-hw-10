@@ -62,7 +62,7 @@ ul {
 
 /*  Timer */
 
-/* .flatpickr-input {
+.flatpickr-input {
   width: 238px;
   height: 22px;
   gap: 8px;
@@ -138,7 +138,7 @@ input text:focus {
   font-size: 40px;
   line-height: 48px;
   text-align: center;
-} */
+}
 
 /* Snackbar */
 
