@@ -78,8 +78,8 @@ ul {
   color: #2e2f42;
 }
 
-input.flatpickr-input:hover,
-input.flatpickr-input:focus {
+.flatpickr-input:hover,
+.flatpickr-input:focus {
   border-color: #000000;
 }
 
