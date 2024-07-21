@@ -147,7 +147,7 @@ input text:focus {
   height: 100%;
 }
 
-input[type='number'] {
+/* input[type='number'] {
   width: 342px;
   height: 30px;
   padding: 4px 8px;
@@ -160,7 +160,7 @@ input[type='number']:hover,
 input[type='number']:focus {
   border: 1px solid #2e2f42;
   transition: color 4000ms;
-}
+} */
 
 fieldset {
   display: flex;
